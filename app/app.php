@@ -31,7 +31,8 @@
 
         $description = $_POST['description'];
         $category_id = $_POST['category_id'];
-        $task = new Task($description, $id = null, $category_id);
+        $due = $_POST['due'];
+        $task = new Task($description, $id = null, $category_id, $due);
         $task->save();
         $category = Category::find($category_id);
         var_dump($category);
