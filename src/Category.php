@@ -58,14 +58,14 @@
                 if ($category_id == $search_id) {
                   $found_category = $category;
                 }
-            }
+            } 
             return $found_category;
         }
 
         function getTasks()
         {
             $tasks = Array();
-            $returned_tasks = $GLOBALS['DB']->query("SELECT * FROM tasks WHERE category_id = {$this->getId()};");
+            $returned_tasks = $GLOBALS['DB']->query("SELECT * FROM tasks WHERE category_id = {$this->getId()}");
             foreach($returned_tasks as $task) {
                 $description = $task['description'];
                 $id = $task['id'];
