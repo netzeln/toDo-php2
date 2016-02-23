@@ -19,7 +19,7 @@
     });
 
     $app->get("/tasks", function() use ($app) {
-        return $app['twig']->render('tasks.html.twig', array('tasks' => Task::getAll()));
+        return $app['twig']->render('tasks.html.twig', array('tasks' => Task::getAll(), 'categories' => Category::getAll()));
     });
 
     $app->get("/categories/{id}", function($id) use ($app){

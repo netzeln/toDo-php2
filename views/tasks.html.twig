@@ -11,12 +11,18 @@
         <body>
         <h1>Tasks</h1>
 
-        
+
         {% if tasks is not empty %}
             <p>Here are all your tasks:</p>
             <ul>
                 {% for task in tasks %}
-                    <li>{{ task.getDescription }}</li>
+                    <li>{{ task.getDescription }} --
+                    {% for category in categories %}
+                        {% if category.getId == task.getCategoryId %}
+                        <em>{{ category.getName}}</em>
+                        {% endif %}
+                    {% endfor %}
+                    </li>
                 {% endfor %}
             </ul>
         {% endif %}
