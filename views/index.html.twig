@@ -29,7 +29,9 @@
             <p>There are no categories yet!</p>
         {% endif %}
 
-        
+        <form action='/delete_categories' method='post'>
+            <button type='submit'>Clear</button>
+        </form>
         <p><a href="/tasks">Click here</a> to see all of the tasks and to add a task.</p>
     </body>
 </html>

@@ -53,7 +53,7 @@
 
         static function getAll()
         {
-            $returned_tasks = $GLOBALS['DB']->query("SELECT * FROM tasks;");
+            $returned_tasks = $GLOBALS['DB']->query("SELECT * FROM tasks ORDER BY due;");
             $tasks = array();
             foreach($returned_tasks as $task) {
                 $description = $task['description'];
@@ -83,5 +83,6 @@
             }
             return $found_task;
         }
+
     }
 ?>
