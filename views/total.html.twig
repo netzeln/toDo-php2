@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="/css/bootstrap-theme.min.css" type="text/css">
+        <link rel="stylesheet" href="/css/styles.css" type="text/css">
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <body>
+        <h1>Total Jobs</h1>
+        {% for jobs in categories %}
+        <h1>{{ jobs.getName }}</h1>
+            {% for task in tasks %}
+            <ul>
+            {% if jobs.getId == task.getCategoryId %}
+                <li>{{ task.getDescription }} by {{ task.getDue }}</li>
+            {% endif %}
+            </ul>
+            {% endfor %}
+
+        {% endfor %}
+
+
+        <p><a href='/'>Home</a></p>
+    </body>
+</html>

@@ -27,6 +27,12 @@
         return $app['twig']->render('categories.html.twig', array('category'=> $category, 'tasks' => $category->getTasks()));
     });
 
+    $app->get("/total", function() use ($app){
+        $category = Category::getAll();
+        $tasks = Task::getAll();
+        return $app['twig']->render('total.html.twig', array('categories'=> $category, 'tasks' => $tasks));
+    });
+
     $app->post("/tasks", function() use ($app) {
 
         $description = $_POST['description'];
