@@ -108,7 +108,7 @@
         $category = Category::find($id);
         $new_name = $_POST['name'];
         $category->update($new_name);
-      return $app['twig']->render('category.html.twig', array('category'=>$category, 'all_tasks'=>Task::getAll(), 'tasks'=>$category->getTasks()));
+      return $app['twig']->render('categories.html.twig', array('categories'=>Category::getAll(), 'all_tasks'=>Task::getAll(), 'tasks'=>$category->getTasks()));
     });
 
     $app->delete("/categories/{id}", function($id) use ($app)

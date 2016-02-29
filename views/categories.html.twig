@@ -23,7 +23,7 @@
                 <p>Here are all your categories:</p>
                 <ul>
                     {% for category in categories %}
-                        <li><a href="categories/{{ category.getId }}">{{ category.getName }}</a></li>
+                        <li><a href="/categories/{{ category.getId }}">{{ category.getName }}</a></li>
                     {% endfor %}
                 </ul>
                 {% else %}

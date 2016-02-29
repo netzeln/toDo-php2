@@ -1,15 +1,19 @@
 <html>
 <head>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+    <meta charset="utf-8">
     <title>To Do List</title>
 </head>
 <body>
-    <h1>{{ category.getName }}</h1>
+    <h1>Category:{{ category.getName }}</h1>
 
     {% if tasks is not empty %}
         <p>Here are the tasks for this category:</p>
         <ul>
             {% for task in tasks %}
-                <li>{{ task.getDescription }}</li>
+                <li><a href="/task/{{task.getId}}">{{ task.getDescription }}</a> by {{task.getDue}}</li>
             {% endfor %}
         </ul>
     {% endif %}

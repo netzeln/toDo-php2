@@ -33,7 +33,7 @@
 
         static function getAll()
         {
-            $returned_categories = $GLOBALS['DB']->query("SELECT * FROM categories;");
+            $returned_categories = $GLOBALS['DB']->query("SELECT * FROM categories ORDER BY name;");
             $categories = array();
             foreach($returned_categories as $category) {
                 $name = $category['name'];
