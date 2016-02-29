@@ -15,7 +15,7 @@
             <p>Here are all your tasks:</p>
             <ul>
                 {% for task in tasks %}
-                    <li>{{ task.getDescription }} by {{ task.getDue }}</li>
+                    <li><a href="tasks/{{task.getId}}">{{ task.getDescription }} by {{ task.getDue }}</a></li>
                 {% endfor %}
             </ul>
         {% endif %}
@@ -24,7 +24,7 @@
 
 
         <form action='/tasks' method='post'>
-            <input id="category_id" name="category_id" type="hidden" value="{{ category.getId()}}">
+
             <label for='description'>Task Description</label>
             <input id='description' name='description' type='text'>
             <label for='due'>Complete By:</label>
