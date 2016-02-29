@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>To Do List</title>
+</head>
+<body>
+    <h1>Update the {{ task.getDescription }} task </h1>
+
+<form action="/task/{{ task.getId }}" method="post">
+  <input name="_method" type="hidden" value="patch">
+
+  <label for="name" value="{{task.getDescription}}">Rename your task:</label>
+  <input id="name" name="name" type="text" value="{{task.getDescription}}">
+  <label for='due'>New due date:</label>
+  <input id='due' name='due' type='date' value="{{task.getDue}}">
+
+  <button type="submit">Update</button>
+</form>
+
+<form action="/task/{{ task.getId }}" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete this task</button>
+</form>
+
+    <p><a href='/'>Home</a></p>
+</body>
+</html>

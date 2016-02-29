@@ -10,30 +10,10 @@
     <body>
         <h1>Welcome to To Do List</h1>
 
-        <p>Create a new category:</p>
+        <p><a href="/categories">Click Here</a> to see and add categories</p>
 
-        <form action='/categories' method='post'>
-            <label for='name'>Category name</label>
-            <input id='name' name='name' type='text'>
+        <p><a href="/tasks">Click here</a> to see and add tasks.</p>
 
-            <button type='submit'>Add category</button>
-        </form>
-
-        {% if categories is not empty %}
-            <p>Here are all your categories:</p>
-            <ul>
-                {% for category in categories %}
-                    <li><a href="categories/{{ category.getId }}">{{ category.getName }}</a></li>
-                {% endfor %}
-            </ul>
-            <p>There are no categories yet!</p>
-        {% endif %}
-
-        <form action='/delete_categories' method='post'>
-            <button type='submit'>Clear</button>
-        </form>
-        
-        <p><a href="/tasks">Click here</a> to see all of the tasks and to add a task.</p>
-        <p><a href="/total">Click here</a> to see all of the tasks and categories.</p>
+        <!-- <p><a href="/total">Click here</a> to see all of the tasks and categories.</p> -->
     </body>
 </html>

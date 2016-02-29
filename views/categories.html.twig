@@ -9,29 +9,34 @@
     </head>
     <body>
         <body>
-        <h1>{{ category.getName }}</h1>
 
-        {% if tasks is not empty %}
-            <p>Here are all your tasks:</p>
-            <ul>
-                {% for task in tasks %}
-                    <li><a href="tasks/{{task.getId}}">{{ task.getDescription }} by {{ task.getDue }}</a></li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+            <h2>Create a new category:</h2>
 
-        <h4>Add a task</h4>
+            <form action='/categories' method='post'>
+                <label for='name'>Category name</label>
+                <input id='name' name='name' type='text'>
+
+                <button type='submit'>Add category</button>
+            </form>
+
+            {% if categories is not empty %}
+                <p>Here are all your categories:</p>
+                <ul>
+                    {% for category in categories %}
+                        <li><a href="categories/{{ category.getId }}">{{ category.getName }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>There are no categories yet!</p>
+            {% endif %}
+
+            <form action='/delete_categories' method='post'>
+                <button type='submit'>Clear Categories</button>
+            </form>
 
 
-        <form action='/tasks' method='post'>
 
-            <label for='description'>Task Description</label>
-            <input id='description' name='description' type='text'>
-            <label for='due'>Complete By:</label>
-            <input id='due' name='due' type='date'>
-            <button type='submit'>Add task</button>
-        </form>
 
-        <p><a href='/'>Home</a></p>
+        <button class="btn btn-primary"><a href='/'>Home</a></button>
     </body>
 </html>

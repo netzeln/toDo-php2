@@ -16,12 +16,8 @@
             <p>Here are all your tasks:</p>
             <ul>
                 {% for task in tasks %}
-                    <li>{{ task.getDescription }} --
-                    {% for category in categories %}
-                        {% if category.getId == task.getCategoryId %}
-                        <em>{{ category.getName}}</em>
-                        {% endif %}
-                    {% endfor %}
+                    <li><a href ="/task/{{task.getId}}">{{ task.getDescription }}</a>
+
                     </li>
                 {% endfor %}
             </ul>
