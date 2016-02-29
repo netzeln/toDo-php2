@@ -6,6 +6,7 @@
     */
 
     require_once "src/Category.php";
+    require_once "src/Task.php";
 
     $server = 'mysql:host=localhost;dbname=to_do_test';
     $username = 'root';
@@ -134,7 +135,7 @@
             $this->assertEquals("Job stuff", $test_category->getName());
         }
 
-        function testDelete()
+        function testDeleteCategory()
         {
             //Arrange
             $name = "Wash the dog";
@@ -142,16 +143,40 @@
             $test_category = new Category($name, $id);
             $test_category->save();
 
-            $name2 = "Home stuff";
-            $id2 = 2;
+            $name2 = "Wash the Cat";
+            $id2= 2;
             $test_category2 = new Category($name2, $id2);
             $test_category2->save();
 
+
             //Act
+
             $test_category->delete();
 
             //Assert
             $this->assertEquals([$test_category2], Category::getAll());
+        }
+
+        function testDelete()
+        {
+            //Arrange
+            $name = "Work stuff";
+            $id = 1;
+            $test_category = new Category($name, $id);
+            $test_category->save();
+
+            $description = "File reports";
+            $id2 = 2;
+            $due = '2016-12-12';
+            $test_task = new Task($description, $id2, $due);
+            $test_task->save();
+
+            //Act
+            $test_category->addTask($test_task);
+            $test_category->delete();
+
+            //Assert
+            $this->assertEquals([], $test_task->getCategories());
         }
 
         function testAddTask()

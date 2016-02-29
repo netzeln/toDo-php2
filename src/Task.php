@@ -87,6 +87,7 @@
         function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM tasks WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM categories_tasks WHERE task_id = {$this->getId()};");
         }
 
         function addCategory($category)
@@ -109,6 +110,7 @@
                 $name = $returned_category[0]['name'];
                 $id = $returned_category[0]['id'];
                 $new_category = new Category($name, $id);
+
                 array_push($categories, $new_category);
             }
             return $categories;
