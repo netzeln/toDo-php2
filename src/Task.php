@@ -89,5 +89,15 @@
             $GLOBALS['DB']->exec("DELETE FROM tasks WHERE id = {$this->getId()};");
         }
 
+        function addCategory()
+        {
+
+        }
+
+        function getCategories()
+        {
+            
+        }
+
     }
 ?>

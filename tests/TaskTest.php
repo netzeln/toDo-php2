@@ -174,5 +174,54 @@
                 $this->assertEquals([$test_task2], Task::getAll());
             }
         }
+
+        function testAddCategory()
+        {
+            //arrange
+            $name = "Wash the dog";
+            $id= 1;
+            $test_category = new Category($name, $id);
+            $test_category->save();
+
+            $description = "Get a Dog";
+            $id2 = 2;
+            $due = '2025-06-16';
+            $test_task = new Task($description, $id2, $due);
+            $test_task->save();
+
+            //act
+            $test_task->addCategory($test_category);
+
+            //assert
+            $this->assertEquals($test_task->getCategories(), [$test_category]);
+        }
+
+        function testGetCategories()
+        {
+            //arrange
+            $name = "Wash the dog";
+            $id= 1;
+            $test_category = new Category($name, $id);
+            $test_category->save();
+
+            $name2 = "Wash Self";
+            $id2= 2;
+            $test_category2 = new Category($name2, $id2);
+            $test_category2->save();
+
+
+            $description2 = "Get soap";
+            $id3 = 3;
+            $due2 = '2025-06-17';
+            $test_task = new Task($description2, $id3, $due2);
+            $test_task->save();
+
+            //act
+            $test_task->addCategory($test_category);
+            $test_task->addCategory($test_category2);
+
+            //assert
+            $this->assertEquals($test_task->getCategories(), [$test_category, $test_category2]);
+        }
     }
  ?>

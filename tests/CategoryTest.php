@@ -175,7 +175,7 @@
             $this->assertEquals($test_category->getTasks(), [$test_task]);
         }
 
-        function testGetTask()
+        function testGetTasks()
         {
             //arrange
             $name = "Wash the dog";
