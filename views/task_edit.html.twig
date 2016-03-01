@@ -19,6 +19,11 @@
 
   <button type="submit">Update</button>
 </form>
+<form action="/task/{{ task.getId }}/done" method="post">
+  <input name="_method" type="hidden" value="patch">
+
+  <button type="submit">Mark As Done</button>
+</form>
 
 <form action="/task/{{ task.getId }}" method="post">
   <input name="_method" type="hidden" value="delete">

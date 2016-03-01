@@ -8,6 +8,12 @@
 </head>
 <body>
     <h1>Task:{{ task.getDescription }}</h1>
+    <h2>Status:
+    {% if task.getDone == 1 %} DONE
+    {% else %}
+     Not done
+     {% endif%}
+    </h2>
 
     {% if categories is not empty %}
         <p>Here are the categories for this task:</p>

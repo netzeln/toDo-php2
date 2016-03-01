@@ -57,7 +57,7 @@
 
         static function getAll()
         {
-            $returned_tasks = $GLOBALS['DB']->query("SELECT * FROM tasks ORDER BY due, done;");
+            $returned_tasks = $GLOBALS['DB']->query("SELECT * FROM tasks ORDER BY due;");
             $tasks = array();
             foreach($returned_tasks as $task) {
                 $description = $task['description'];
@@ -98,7 +98,7 @@
         function markDone()
         {
             $GLOBALS['DB']->exec("UPDATE tasks SET done = 1;");
-
+//this will need to change to see if the database is correct.
             $this->setDone(1);
 
         }

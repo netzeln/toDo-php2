@@ -104,6 +104,12 @@
       return $app['twig']->render('task.html.twig', array('task'=>$task, 'all_categories'=>Category::getAll(), 'categories'=>$task->getCategories()));
     });
 
+    $app->patch("/task/{id}/done", function($id) use ($app){
+        $task = Task::find($id);
+
+        $task->markDone();
+      return $app['twig']->render('task.html.twig', array('task'=>$task, 'all_categories'=>Category::getAll(), 'categories'=>$task->getCategories()));
+    });
     $app->patch("/categories/{id}", function($id) use ($app){
         $category = Category::find($id);
         $new_name = $_POST['name'];
