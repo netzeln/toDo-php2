@@ -5,11 +5,12 @@
         private $id;
         private $due;
 
-        function __construct($description, $id = null, $due)
+        function __construct($description, $id = null, $due, $done = 0)
         {
             $this->description = $description;
             $this->id = $id;
             $this->due = $due;
+            $this->done = $done;
         }
 
         function setDescription($new_description)
@@ -38,22 +39,32 @@
             $this->due = $new_due;
         }
 
+        function getDone()
+        {
+            return $this->done;
+        }
+
+        function setDone($new_done)
+        {
+            $this->done = $new_done;
+        }
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO tasks (description, due) VALUES ('{$this->getDescription()}',  '{$this->getDue()}');");
+            $GLOBALS['DB']->exec("INSERT INTO tasks (description, due, done) VALUES ('{$this->getDescription()}',  '{$this->getDue()}', {$this->getDone()});");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
         static function getAll()
         {
-            $returned_tasks = $GLOBALS['DB']->query("SELECT * FROM tasks ORDER BY due;");
+            $returned_tasks = $GLOBALS['DB']->query("SELECT * FROM tasks ORDER BY due, done;");
             $tasks = array();
             foreach($returned_tasks as $task) {
                 $description = $task['description'];
                 $id = $task['id'];
                 $due = $task['due'];
-                $new_task = new Task($description, $id, $due);
+                $done = $task['done'];
+                $new_task = new Task($description, $id, $due, $done);
                 array_push($tasks, $new_task);
             }
             return $tasks;
@@ -82,6 +93,14 @@
             $GLOBALS['DB']->exec("UPDATE tasks SET description ='{$new_description}', due ='{$new_due}' WHERE id = {$this->getID()};");
             $this->setDescription($new_description);
             $this->setDue($new_due);
+        }
+
+        function markDone()
+        {
+            $GLOBALS['DB']->exec("UPDATE tasks SET done = 1;");
+
+            $this->setDone(1);
+
         }
 
         function delete()

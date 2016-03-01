@@ -65,7 +65,7 @@
 
         function test_getAll()
         {
-            //Arrange
+            //Arrange //Note that this is ordered by due date
             $name = "Work stuff";
             $test_category = new Category($name);
             $test_category->save();
@@ -78,7 +78,7 @@
             $result = Category::getAll();
 
             //Assert
-            $this->assertEquals([$test_category, $test_category2], $result);
+            $this->assertEquals([$test_category2, $test_category], $result);
         }
 
         function test_deleteAll()
@@ -168,7 +168,8 @@
             $description = "File reports";
             $id2 = 2;
             $due = '2016-12-12';
-            $test_task = new Task($description, $id2, $due);
+            $done = 1;
+            $test_task = new Task($description, $id2, $due, $done);
             $test_task->save();
 
             //Act
@@ -190,7 +191,8 @@
             $description = "Get a Dog";
             $id2 = 2;
             $due = '2025-06-16';
-            $test_task = new Task($description, $id2, $due);
+            $done = 0;
+            $test_task = new Task($description, $id2, $due, $done);
             $test_task->save();
 
             //act
@@ -211,13 +213,14 @@
             $description = "Get a Dog";
             $id2 = 2;
             $due = '2025-06-16';
-            $test_task = new Task($description, $id2, $due);
+            $done = 0;
+            $test_task = new Task($description, $id2, $due, $done);
             $test_task->save();
 
             $description2 = "Get dog Soap";
             $id3 = 3;
             $due2 = '2025-06-17';
-            $test_task2 = new Task($description2, $id3, $due2);
+            $test_task2 = new Task($description2, $id3, $due2, $done);
             $test_task2->save();
 
             //act
