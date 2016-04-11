@@ -1,41 +1,38 @@
-# _{Application Name}_
+# _To Do List (PHP Classwork for Epicodus)_
 
-#### _{Brief description of application}, {Date of current version}_
+#### _PHP Classwork for Epicodus, 2016_
 
-#### By _**{List of contributors}**_
+#### By _**Nic Netzel**_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_This is daily classwork, likely in draft form, for the PHP class at Epicodus. This is another To-Do list._
 
 ## Setup/Installation Requirements
 
 * _Clone the Repository_
-* _in your terminal, run  "composer install"   to get silex and twig_
-* _start your php sever in the "web" folder_
-* _x _
-* _x _
-
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this app depends on?}_
+* _in your terminal, run  "composer install"   to get silex, twig and PHP Unit_
+* _open your server and mySQL_
 
 ## Known Bugs
 
-_{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
+_This is draft work, it may not be functional._
 
 ## Support and contact details
 
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+_Contact me via GitHub with suggestions or comments_
 
 ## Technologies Used
 
-_
 * _Composer_
 * _Twig_
 * _Silex_
 * _PHP_
+* _MySQL_
+* _apache server
 
 ### License
 
-*{Determine the license under which this application can be used.  See below for more details on licensing.}*
+*MIT Licesnse*
 
-Copyright (c) 2015 **_{List of contributors or company name}_**
+Copyright (c) 2016 **_{Nic Netzel}_**
